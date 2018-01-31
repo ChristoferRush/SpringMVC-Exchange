@@ -20,6 +20,8 @@ public class Currency {
 
     private Integer amount;
 
+    public Currency(){}
+
     public Long getId() {
         return id;
     }

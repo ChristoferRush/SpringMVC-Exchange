@@ -12,11 +12,17 @@ public class Wallet {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
     @ManyToMany
     private List<Currency> currencyList = new ArrayList<Currency>();
+
+    public Wallet(){}
+
+    public Wallet(User user){
+        setUser(user);
+    }
 
     public Long getId() {
         return id;
