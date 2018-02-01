@@ -6,10 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.futureprocessing.exchange.entity.User;
 import pl.futureprocessing.exchange.entity.Wallet;
+import pl.futureprocessing.exchange.entity.WalletCurrency;
 import pl.futureprocessing.exchange.repository.UserRepository;
 import pl.futureprocessing.exchange.repository.WalletRepository;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class WalletController {
@@ -34,6 +37,9 @@ public class WalletController {
         model.addAttribute("userWallet", userWallet);
         Wallet officeWallet = walletRepository.findOne(userRepository.findOne(1L).getWallet().getId());
         model.addAttribute(officeWallet);
+
+        List<WalletCurrency> walletCurrencies = userWallet.getWalletCurrencyList();
+        model.addAttribute("walletCurrencies", walletCurrencies);
 
         return "wallet";
     }
