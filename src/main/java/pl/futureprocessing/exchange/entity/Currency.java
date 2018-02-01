@@ -15,10 +15,8 @@ public class Currency {
 
     private String code;
 
-    @ManyToMany
-    private List<Wallet> walletList;
-
-    private Integer amount;
+    @OneToMany
+    private List<WalletCurrency> walletCurrencyList;
 
     public Currency(){}
 
@@ -46,19 +44,11 @@ public class Currency {
         this.code = code;
     }
 
-    public List<Wallet> getWalletList() {
-        return walletList;
+    public List<WalletCurrency> getWalletCurrencyList() {
+        return walletCurrencyList;
     }
 
-    public void setWalletList(List<Wallet> walletList) {
-        this.walletList = walletList;
-    }
-
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setWalletCurrencyList(List<WalletCurrency> walletCurrencyList) {
+        this.walletCurrencyList = walletCurrencyList;
     }
 }

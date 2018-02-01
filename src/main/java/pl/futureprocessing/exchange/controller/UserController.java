@@ -90,11 +90,11 @@ public class UserController {
         for (User user : userList){
             if (login.getUsername().equals(user.getUsername()) && login.getPassword().equals(user.getPassword())){
                 session.setAttribute("user", user);
-                return "wallet";
+                return "redirect:/wallet";
             }
         }
         String error = "Wrong username or password";
-        request.setAttribute("error", error);
+        model.addAttribute("error", error);
         return "redirect:/login";
     }
 }

@@ -15,8 +15,8 @@ public class Wallet {
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
-    @ManyToMany
-    private List<Currency> currencyList = new ArrayList<Currency>();
+    @OneToMany
+    private List<WalletCurrency> walletCurrencyList = new ArrayList<WalletCurrency>();
 
     public Wallet(){}
 
@@ -40,11 +40,11 @@ public class Wallet {
         this.user = user;
     }
 
-    public List<Currency> getCurrencyList() {
-        return currencyList;
+    public List<WalletCurrency> getWalletCurrencyList() {
+        return walletCurrencyList;
     }
 
-    public void setCurrencyList(List<Currency> currencyList) {
-        this.currencyList = currencyList;
+    public void setWalletCurrencyList(List<WalletCurrency> walletCurrencyList) {
+        this.walletCurrencyList = walletCurrencyList;
     }
 }
